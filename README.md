@@ -14,6 +14,8 @@ Caso possua o docker instalado na sua máquina, com ele rodando use o comando:
 docker-compose up
 ```
 
+O projeto estará rodando no [http://localhost:8000/](http://localhost:8000/)
+
 <br>
 
 <ins>OBS</ins>: Nos sistemas operacionais MacOs ou Unix, é possível rodar o projeto num ambiente virtual local. O pré-requisito é ter o python3 instalado na sua máquina.
