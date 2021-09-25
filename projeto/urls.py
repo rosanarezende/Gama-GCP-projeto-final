@@ -9,7 +9,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('empresas/', views.listarEmpresas, name='empresas'),
-    path('cadastrar-empresa/',views.home, name='cadastrar-empresa'), ## atenção
+
+    path('cadastrar-empresa/',views.irParaCadastroEmpresa, name='cadastrar-empresa'),
+    path('salvar-cadastrar-empresa/',views.salvarCadastrarEmpresa, name='salvar-cadastrar-empresa'),
 
     path('empresa/<int:pk>/',views.home, name='empresa'), ## atenção
 
