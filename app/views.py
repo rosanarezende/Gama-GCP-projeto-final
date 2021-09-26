@@ -23,4 +23,4 @@ def salvarCadastrarEmpresa(request):
     formularioEmpresa = forms.EmpresasForm(request.POST or None)
     if formularioEmpresa.is_valid():
         formularioEmpresa.save()
-        return HttpResponseRedirect("/")
+        return HttpResponseRedirect("/empresas/")
