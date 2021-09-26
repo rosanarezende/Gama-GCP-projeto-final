@@ -15,6 +15,9 @@ urlpatterns = [
 
     path('empresa/<int:pk>/',views.listarProdutosdaEmpresa, name='empresa'),
 
+    path('cadastrar-produto/<int:pk>/', views.irParaCadastroProduto, name='cadastrar-produto'),
+    path('salvar-cadastrar-produto/<int:pk>/',views.salvarCadastrarProduto, name='salvar-cadastrar-produto'),
+
     path('editar-empresa/<int:pk>/',views.home, name='editar-empresa'), ## atenção
     path('salvar-editar-empresa/<int:pk>/',views.home, name='salvar-editar-empresa'), ## atenção
 

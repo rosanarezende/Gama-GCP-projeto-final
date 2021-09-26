@@ -31,7 +31,7 @@
     </div>
 
     <div class="col-4 m-auto pt-3 pb-2 text-end">
-      <a class="btn btn-primary" href="/cadastrar-produto" role="button">Cadastrar Produto</a>
+      <a class="btn btn-primary" href="/cadastrar-produto/{{empresa}}" role="button">Cadastrar Produto</a>
     </div>
   </div>
   <br>
@@ -56,9 +56,9 @@
         <tr>
           <td>{{ produto.id }}</td>
           <td>{{ produto.nome }}</td>
-          <td>{{ produto.qtd_estoque }}</td>
+          <td>{{ produto.qtde_estoque }}</td>
           <td>{{ produto.preco }}</td>
-          <td>{{ produto.categoria }}</td>
+          <td>{{ produto.categoria.nome }}</td>
           <td>{{ produto.descricao }}</td>
 
           <td>
