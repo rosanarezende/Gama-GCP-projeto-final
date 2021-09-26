@@ -36,8 +36,10 @@ def listarProdutosdaEmpresa(request,pk):
     return render(request,"empresa.html", data)
 
 def irParaCadastroProduto(request):
-    data = {}
-    data['formularioProduto'] = forms.ProdutosForm()
+    data = {
+        "formularioProduto": forms.ProdutosForm(),
+        "categoriasProduto": models.Categorias.objects.all().order_by('nome')
+    }
     return render(request, "cadastro-produto.html", data)
 
 def salvarCadastrarProduto(request, pk):
