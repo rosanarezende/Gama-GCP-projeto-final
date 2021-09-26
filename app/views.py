@@ -3,7 +3,9 @@ from app import models, forms
 from django.http import HttpResponseRedirect
 
 def home(request):
-    return render(request, "index.html")
+    data = {}
+    data['produtos'] = models.Produtos.objects.all()
+    return render(request, "index.html",data)
 
 def listarEmpresas(request):
     data = {}
