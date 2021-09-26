@@ -15,7 +15,9 @@ def listarEmpresas(request):
     return render(request,"empresas.html", data)
 
 def irParaCadastroEmpresa(request):
-    return render(request, "cadastro-empresa.html")
+    data = {}
+    data['formularioEmpresa'] = forms.EmpresasForm()
+    return render(request, "cadastro-empresa.html", data)
 
 def salvarCadastrarEmpresa(request):
     formularioEmpresa = forms.EmpresasForm(request.POST or None)
