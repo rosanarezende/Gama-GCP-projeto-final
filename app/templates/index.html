@@ -20,14 +20,13 @@
         <span class="fs-4">MagaTutu</span>
       </a>
 
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="/empresas" class="nav-link">Empresas</a></li>
-      </ul>
+      <a class="btn btn-primary" href="/empresas" role="button">Empresas</a>
     </header>
   </div>
 
-  <div class="container d-flex">
-    <div class="flex-shrink-0 p-3 bg-white align-items-center" style="width: 150px;">
+  <div class="container"> 
+    <!-- d-flex -->
+    <!-- <div class="flex-shrink-0 p-3 bg-white align-items-center" style="width: 150px;">
       <ul class="list-unstyled ps-0">
         <li class="mb-1">
           <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
@@ -43,12 +42,16 @@
           </div>
         </li>
       </ul>
-    </div>
+    </div> -->
+
+    <h1>Lista de Produtos</h1>
 
     <div class="album py-5 bg-light mt-3">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <div class="col">
+          
+          {% for produto in produtos %}
+           <div class="col">
             <div class="card shadow-sm">
               <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
                 role="img" aria-label="Placeholder: صورة مصغرة" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -56,55 +59,20 @@
                 <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
               </svg>
 
-              <div class="card-body">
-                <p class="card-text">Produto 1</p>
+                           <div class="card-body">
+                <p class="card-text">{{produto.nome}}</p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
+                  <!-- <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">Detalhes</button>
-                  </div>
-                  <small class="text-muted">R$25,00</small>
+                  </div>-->
+                  <small class="text-muted">R$ {{produto.preco}}</small>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: صورة مصغرة" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
-              </svg>
+          {% endfor %}
 
-              <div class="card-body">
-                <p class="card-text">Produto 2</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Detalhes</button>
-                  </div>
-                  <small class="text-muted">R$100,00</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: صورة مصغرة" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
-              </svg>
 
-              <div class="card-body">
-                <p class="card-text">Produto 2</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Detalhes</button>
-                  </div>
-                  <small class="text-muted">R$100,00</small>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
