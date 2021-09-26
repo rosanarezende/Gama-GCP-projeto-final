@@ -40,6 +40,22 @@ def listarProdutosdaEmpresa(request,pk):
         }
     return render(request,"empresa.html", data)
 
+def irParaEditarEmpresa(request,pk):
+    data = {}
+    data['empresa'] = models.Empresas.objects.get(pk=pk)
+    data['formularioEmpresa'] = forms.EmpresasForm(instance=data['empresa'])
+    return render(request,"cadastro-empresa.html", data)   
+
+def salvarEditarEmpresa(request,pk):
+    data = {}
+    data['empresa'] = models.Empresas.objects.get(pk=pk)
+    formularioEmpresa = forms.EmpresasForm(request.POST or None,instance=data['empresa'])
+    if formularioEmpresa.is_valid():
+        formularioEmpresa.save()
+        return HttpResponseRedirect ('/')
+
+      
+
 def irParaCadastroProduto(request, pk):
     data = {
         "formularioProduto": forms.ProdutosForm(),
