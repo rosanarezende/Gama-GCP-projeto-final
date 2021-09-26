@@ -21,7 +21,7 @@ urlpatterns = [
     path('editar-empresa/<int:pk>/',views.irParaEditarEmpresa, name='editar-empresa'),
     path('salvar-editar-empresa/<int:pk>/',views.salvarEditarEmpresa, name='salvar-editar-empresa'), 
 
-    path('deletar-empresa/<int:pk>/',views.home, name='deletar-empresa'), ## atenção
+    path('deletar-empresa/<int:pk>/',views.deletarEmpresa, name='deletar-empresa'), 
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

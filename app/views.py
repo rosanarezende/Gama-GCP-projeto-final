@@ -52,7 +52,12 @@ def salvarEditarEmpresa(request,pk):
     formularioEmpresa = forms.EmpresasForm(request.POST or None,instance=data['empresa'])
     if formularioEmpresa.is_valid():
         formularioEmpresa.save()
-        return HttpResponseRedirect ('/')
+        return HttpResponseRedirect ("/empresas/")
+
+def deletarEmpresa(request,pk):
+    empresa = models.Empresas.objects.get(pk=pk)
+    empresa.delete()
+    return HttpResponseRedirect ("/empresas/")      
 
       
 
