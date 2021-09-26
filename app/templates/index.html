@@ -20,14 +20,13 @@
         <span class="fs-4">MagaTutu</span>
       </a>
 
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="/empresas" class="nav-link">Empresas</a></li>
-      </ul>
+      <a class="btn btn-primary" href="/empresas" role="button">Empresas</a>
     </header>
   </div>
 
-  <div class="container d-flex">
-    <div class="flex-shrink-0 p-3 bg-white align-items-center" style="width: 150px;">
+  <div class="container"> 
+    <!-- d-flex -->
+    <!-- <div class="flex-shrink-0 p-3 bg-white align-items-center" style="width: 150px;">
       <ul class="list-unstyled ps-0">
         <li class="mb-1">
           <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
@@ -43,7 +42,9 @@
           </div>
         </li>
       </ul>
-    </div>
+    </div> -->
+
+    <h1>Lista de Produtos</h1>
 
     <div class="album py-5 bg-light mt-3">
       <div class="container">
@@ -64,7 +65,7 @@
                   <!-- <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">Detalhes</button>
                   </div>-->
-                  R$<small class="text-muted">{{produto.preco}}</small>
+                  <small class="text-muted">R$ {{produto.preco}}</small>
                 </div>
               </div>
             </div>
