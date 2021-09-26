@@ -18,10 +18,10 @@ urlpatterns = [
     path('cadastrar-produto/<int:pk>/', views.irParaCadastroProduto, name='cadastrar-produto'),
     path('salvar-cadastrar-produto/<int:pk>/',views.salvarCadastrarProduto, name='salvar-cadastrar-produto'),
 
-    path('editar-empresa/<int:pk>/',views.home, name='editar-empresa'), ## atenção
-    path('salvar-editar-empresa/<int:pk>/',views.home, name='salvar-editar-empresa'), ## atenção
+    path('editar-empresa/<int:pk>/',views.irParaEditarEmpresa, name='editar-empresa'),
+    path('salvar-editar-empresa/<int:pk>/',views.salvarEditarEmpresa, name='salvar-editar-empresa'), 
 
-    path('deletar-empresa/<int:pk>/',views.home, name='deletar-empresa'), ## atenção
+    path('deletar-empresa/<int:pk>/',views.deletarEmpresa, name='deletar-empresa'), 
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
