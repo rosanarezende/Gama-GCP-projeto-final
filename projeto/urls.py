@@ -21,7 +21,12 @@ urlpatterns = [
     path('editar-empresa/<int:pk>/',views.irParaEditarEmpresa, name='editar-empresa'),
     path('salvar-editar-empresa/<int:pk>/',views.salvarEditarEmpresa, name='salvar-editar-empresa'), 
 
-    path('deletar-empresa/<int:pk>/',views.deletarEmpresa, name='deletar-empresa'), 
+    path('deletar-empresa/<int:pk>/',views.deletarEmpresa, name='deletar-empresa'),
+
+    path('editar-produto/<int:empresapk>/<int:pk>/', views.irParaEditarProduto, name='editar-produto'),
+    path('salvar-editar-produto/<int:empresapk>/<int:pk>/', views.salvarEditarProduto, name='salvar-editar-produto'),
+
+    path('deletar-produto/<int:pk>/', views.deletarProduto, name='deletar-produto'),
 
 
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+              ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

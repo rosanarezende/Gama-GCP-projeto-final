@@ -59,8 +59,6 @@ def deletarEmpresa(request,pk):
     empresa.delete()
     return HttpResponseRedirect ("/empresas/")      
 
-      
-
 def irParaCadastroProduto(request, pk):
     data = {
         "formularioProduto": forms.ProdutosForm(),
@@ -71,7 +69,6 @@ def irParaCadastroProduto(request, pk):
 
 def salvarCadastrarProduto(request, pk):
     empresa = models.Empresas.objects.get(pk=pk)
-    # formularioProduto = forms.ProdutosForm(request.POST or None)
     formularioProduto = models.Produtos(
         empresa=empresa, 
         nome=request.POST.get('nome'), 
@@ -80,11 +77,49 @@ def salvarCadastrarProduto(request, pk):
         categoria_id=request.POST.get('categoria'), 
         descricao=request.POST.get('descricao')
     )
-    # if formularioProduto.is_valid():
     formularioProduto.save()
     return redirect('empresa', pk)
-        # return HttpResponseRedirect("/")
-    # formularioProduto = forms.ProdutosForm(request.POST or None)
-    # if formularioProduto.is_valid():
-    #     formularioProduto.save()
-    #     return HttpResponseRedirect("/empresa/", pk)
+
+def irParaEditarProduto(request,empresapk, pk):
+    data = {}
+    data['categoriasProduto'] = models.Categorias.objects.all().order_by('nome')
+    data['produto'] = models.Produtos.objects.get(pk=pk)
+    data['formularioProduto'] = forms.ProdutosForm(instance=data['produto'])
+    data['empresa'] = empresapk
+    return render(request,"cadastro-produto.html", data)
+
+def salvarEditarProduto(request,empresapk, pk):
+    empresa = models.Empresas.objects.get(pk=empresapk)
+    data = {}
+    data['produto'] = models.Produtos.objects.get(pk=pk)
+    produto = models.Produtos(
+        empresa=empresa,
+        empresa_id = empresapk,
+        nome=request.POST.get('nome'),
+        qtde_estoque=request.POST.get('qtde_estoque'),
+        preco=request.POST.get('preco'),
+        categoria_id=request.POST.get('categoria'),
+        descricao=request.POST.get('descricao')
+    )
+    formularioProduto = forms.ProdutosForm(request.POST or None, instance=produto)
+    if formularioProduto.is_valid():
+        formularioProduto.save()
+        return HttpResponseRedirect ("/empresa/" + str(empresapk))
+
+    # formularioProduto.save(update_fields=['nome'])
+
+#
+# def salvarEditarEmpresa(request,pk):
+#     data = {}
+#     data['empresa'] = models.Empresas.objects.get(pk=pk)
+#     formularioEmpresa = forms.EmpresasForm(request.POST or None,instance=data['empresa'])
+#     if formularioEmpresa.is_valid():
+#         formularioEmpresa.save()
+#         return HttpResponseRedirect ("/empresas/")
+
+
+
+def deletarProduto(request,pk):
+    produto = models.Produtos.objects.get(pk=pk)
+    produto.delete()
+    return HttpResponseRedirect ("/empresas/")
