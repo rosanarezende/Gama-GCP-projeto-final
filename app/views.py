@@ -24,3 +24,24 @@ def salvarCadastrarEmpresa(request):
     if formularioEmpresa.is_valid():
         formularioEmpresa.save()
         return HttpResponseRedirect("/empresas/")
+
+def listarProdutosdaEmpresa(request,pk):
+    data = {}
+    buscarNome = request.GET.get('buscar-nome-produto')
+    produtosdaEmpresa = models.Produtos.objects.filter(empresa_id = pk)
+    if buscarNome:
+        data['produtos'] = produtosdaEmpresa.filter(nome__icontains = buscarNome)
+    else: 
+        data['produtos'] = produtosdaEmpresa
+    return render(request,"empresa.html", data)
+
+# def irParaCadastroEmpresa(request):
+#     data = {}
+#     data['formularioEmpresa'] = forms.EmpresasForm()
+#     return render(request, "cadastro-empresa.html", data)
+
+# def salvarCadastrarEmpresa(request):
+#     formularioEmpresa = forms.EmpresasForm(request.POST or None)
+#     if formularioEmpresa.is_valid():
+#         formularioEmpresa.save()
+#         return HttpResponseRedirect("/empresas/")
