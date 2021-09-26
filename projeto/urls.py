@@ -13,7 +13,7 @@ urlpatterns = [
     path('cadastrar-empresa/',views.irParaCadastroEmpresa, name='cadastrar-empresa'),
     path('salvar-cadastrar-empresa/',views.salvarCadastrarEmpresa, name='salvar-cadastrar-empresa'),
 
-    path('empresa/<int:pk>/',views.home, name='empresa'), ## atenção
+    path('empresa/<int:pk>/',views.listarProdutosdaEmpresa, name='empresa'),
 
     path('editar-empresa/<int:pk>/',views.home, name='editar-empresa'), ## atenção
     path('salvar-editar-empresa/<int:pk>/',views.home, name='salvar-editar-empresa'), ## atenção
