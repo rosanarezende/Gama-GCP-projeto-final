@@ -35,13 +35,13 @@ def listarProdutosdaEmpresa(request,pk):
         data['produtos'] = produtosdaEmpresa
     return render(request,"empresa.html", data)
 
-# def irParaCadastroEmpresa(request):
-#     data = {}
-#     data['formularioEmpresa'] = forms.EmpresasForm()
-#     return render(request, "cadastro-empresa.html", data)
+def irParaCadastroProduto(request):
+    data = {}
+    data['formularioProduto'] = forms.ProdutosForm()
+    return render(request, "cadastro-produto.html", data)
 
-# def salvarCadastrarEmpresa(request):
-#     formularioEmpresa = forms.EmpresasForm(request.POST or None)
-#     if formularioEmpresa.is_valid():
-#         formularioEmpresa.save()
-#         return HttpResponseRedirect("/empresas/")
+def salvarCadastrarProduto(request, pk):
+    formularioProduto = forms.ProdutosForm(request.POST or None)
+    if formularioProduto.is_valid():
+        formularioProduto.save()
+        return HttpResponseRedirect("/empresa/", pk)
