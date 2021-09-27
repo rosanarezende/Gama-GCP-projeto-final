@@ -5,6 +5,7 @@ services:
     image: nouchka/sqlite3
   web:
     build: .
+    image: samaraborges/gama-gcp-projeto-final:v1
     command: >
       sh -c "python manage.py makemigrations
              python manage.py migrate
