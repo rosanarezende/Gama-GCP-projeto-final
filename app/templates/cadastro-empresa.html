@@ -19,12 +19,15 @@
                 </svg>
                 <span class="fs-4">MagaTutu</span>
             </a>
-            <a class="btn btn-secondary" href="/" role="button">Home</a>
+            <a class="btn btn-secondary" href="/empresas/" role="button">Empresas</a>
         </header>
     </div>
     <div class="container">
         <h2 class="text-center">Cadastrar empresa</h2>
-        <form name="salvar-cadastrar-empresa" id="salvar-cadastrar-empresa" method="POST"
+
+        <div id="result"></div>
+
+        <form name="form-empresa" id="form-empresa" method="POST"
             action="{% if empresa %}/salvar-editar-empresa/{{empresa.id}}/{% else %}/salvar-cadastrar-empresa/{% endif %}">
             {% csrf_token %}
             <div class="d-flex justify-content-between">
@@ -48,6 +51,8 @@
         </form>
     </div>
 
+{% load static %}
+<script src="{% static 'javascript.js' %}"> </script>
 </body>
 
 </html>
