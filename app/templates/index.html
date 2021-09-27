@@ -24,55 +24,35 @@
     </header>
   </div>
 
-  <div class="container"> 
-    <!-- d-flex -->
-    <!-- <div class="flex-shrink-0 p-3 bg-white align-items-center" style="width: 150px;">
-      <ul class="list-unstyled ps-0">
-        <li class="mb-1">
-          <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-            data-bs-target="#home-collapse" aria-expanded="true">
-            Categorias
-          </button>
-          <div class="collapse show" id="home-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-dark rounded">Pet Shop</a></li>
-              <li><a href="#" class="link-dark rounded">Celulares</a></li>
-              <li><a href="#" class="link-dark rounded">Decoração</a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div> -->
-
+  <div class="container">
     <h1>Lista de Produtos</h1>
 
     <div class="album py-5 bg-light mt-3">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          
+
           {% for produto in produtos %}
-           <div class="col">
+          <div class="col">
             <div class="card shadow-sm">
               <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: صورة مصغرة" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
+                role="img" aria-label="Placeholder: imagem do produto" preserveAspectRatio="xMidYMid slice"
+                focusable="false">
+                <title>{{produto.nome}}</title>
                 <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
               </svg>
 
-                           <div class="card-body">
-                <p class="card-text">{{produto.nome}}</p>
+              <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center">
-                  <!-- <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Detalhes</button>
-                  </div>-->
-                  <small class="text-muted">R$ {{produto.preco}}</small>
+                  <p class="card-title"><strong>{{produto.nome}}</strong></p>
+                  <small class="card-text">R$ {{produto.preco}}</small>
                 </div>
+                <p><small class="card-muted">{{produto.descricao}}</small></p>
+                <p class="card-text">Empresa: <strong>{{produto.empresa.nome}}</strong></p>
               </div>
+
             </div>
           </div>
           {% endfor %}
-
-
         </div>
       </div>
     </div>
