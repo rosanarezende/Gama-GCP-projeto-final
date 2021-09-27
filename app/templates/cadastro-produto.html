@@ -11,17 +11,18 @@
 </head>
 
 <body>
-    <div class="container">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <div class="container header-content">
+        <header class="d-flex justify-content-center py-2 mb-4 border-bottom">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap" />
-                </svg>
-                <span class="fs-4">MagaTutu</span>
+                {% load static %}
+                <img src="{% static 'tutu.png' %}" alt="MagaTutu" height="100">
             </a>
-            <a class="btn btn-secondary" href="/empresa/{{empresa}}/" role="button">Empresa</a>
+            <div class="d-flex align-items-center">
+                <a class="btn btn-secondary" href="/empresa/{{empresa}}/" role="button">Empresa</a>
+            </div>
         </header>
     </div>
+
     <div class="container">
         <h2 class="text-center">Cadastrar produto</h2>
 
@@ -55,8 +56,10 @@
         </form>
     </div>
 
-{% load static %}
-<script src="{% static 'javascript.js' %}"> </script>
+    {% load static %}
+    <script src="{% static 'javascript.js' %}"> </script>
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    </link>
 </body>
 
 </html>
