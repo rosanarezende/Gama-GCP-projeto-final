@@ -4,7 +4,12 @@ from django.http import HttpResponseRedirect
 
 def home(request):
     data = {}
-    data['produtos'] = models.Produtos.objects.all()
+    data['categoriasProduto'] = models.Categorias.objects.all().order_by('nome')
+    buscarCategoria = request.GET.get('buscar-nome-categoria')
+    if (buscarCategoria == None) or (buscarCategoria == 'todas'):
+        data['produtos'] = models.Produtos.objects.all()
+    else:
+        data['produtos'] = models.Produtos.objects.filter(categoria=buscarCategoria)
     return render(request, "index.html",data)
 
 def listarEmpresas(request):
