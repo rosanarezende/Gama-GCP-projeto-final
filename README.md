@@ -8,7 +8,7 @@ Projeto Final apresentado no curso de Google Cloud Plataform da Gama Academy em 
 
 - Git
 - Github
-- Métodologias ágeis
+- Metodologias ágeis
 - HTML
 - Bootstrap
 - Python
