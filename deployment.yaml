@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gama-gcp-projeto-final
+spec:
+  selector:
+    matchLabels:
+      app: gama-gcp-projeto-final
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: gama-gcp-projeto-final
+    spec:
+      containers:
+        - name: gama-gcp-projeto-final
+          image: samaraborges/gama-gcp-projeto-final
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
