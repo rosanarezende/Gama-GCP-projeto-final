@@ -72,7 +72,7 @@ Em seguida, rodando o terminal na pasta do projeto, é necessário:
   kubectl apply -f deployment.yaml
   ```
 
-- inclir a imagem no minikube:
+- iniciar a imagem no minikube:
   ```bash
   docker save samaraborges/gama-gcp-projeto-final:v1 | (eval $(minikube docker-env) && docker load)
   ```
